@@ -1,0 +1,139 @@
+.Rimed-Farm{
+    position: absolute;
+    left: 20%;
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    border-color:black;
+    border-style: solid;
+    box-shadow: 10px 5px 5px gray;
+}
+.Rimed-Farm:hover{
+    position: absolute;
+    height: 420px;
+    width: 310px;
+    box-shadow: 10px 10px 10px 10px gray;
+    transition: ease-in 0.5s;
+    transition: ease-in-out 0.5s;
+}
+
+.logo-rimed-farm{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 20px;
+}
+.text-rimed-farm{
+    position: absolute;
+    left: 30px;
+    top: 250px;
+    font-size: 25px;
+}
+.watch-project-rimed-farm{
+    position: absolute;
+    left: 30px;
+    top: 320px;
+    width: 225px;
+    height: 30px;
+    text-align: center;
+}
+.watch-rimed{
+    position: absolute;
+    left: 90px;
+}
+
+
+
+
+
+.LediFOOD{
+    position: absolute;
+    left: 40%;
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    border-color:black;
+    border-style: solid;
+    box-shadow: 10px 5px 5px gray;
+}
+.LediFOOD:hover{
+    position: absolute;
+    height: 420px;
+    width: 310px;
+    box-shadow: 10px 10px 10px 10px gray;
+    transition: ease-in 0.5s;
+    transition: ease-in-out 0.5s;
+}
+
+.logo-ledi-food{
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 20px;
+}
+.text-ledi-food{
+    position: absolute;
+    left: 80px;
+    top: 250px;
+    font-size: 25px;
+}
+.watch-project-LediFOOD{
+    position: absolute;
+    left: 30px;
+    top: 320px;
+    width: 225px;
+    height: 30px;
+    text-align: center;
+}
+.watch-LediFOOD{
+    position: absolute;
+    left: 90px;
+}
+
+
+
+
+.Gamepad{
+    position: absolute;
+    left: 60%;
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    border-color:black;
+    border-style: solid;
+    box-shadow: 10px 5px 5px gray;
+}
+.Gamepad:hover{
+    position: absolute;
+    height: 420px;
+    width: 310px;
+    box-shadow: 10px 10px 10px 10px gray;
+    transition: ease-in 0.5s;
+    transition: ease-in-out 0.5s;
+}
+
+.logo-gamepad{
+    position: absolute;
+    width: 170px;
+    height: 100px;
+    left: 60px;
+    top: 70px;
+}
+.text-gamepad{
+    position: absolute;
+    left: 80px;
+    top: 250px;
+    font-size: 25px;
+}
+.watch-project-gamepad{
+    position: absolute;
+    left: 30px;
+    top: 320px;
+    width: 225px;
+    height: 30px;
+    text-align: center;
+}
+.watch-gamepad{
+    position: absolute;
+    left: 90px;
+}

@@ -1,0 +1,296 @@
+// NAVBAR
+
+const items = document.getElementsByClassName('menuItem');
+const windowSize = window.matchMedia('(max-width: 1080px)');
+
+/* exported function */
+function openNav() {
+  if (windowSize.matches) {
+    document.getElementById('drop-menu').style.height = '85vh';
+    document.getElementById('drop-menu').style.boxShadow = '0 15vh #e5e5e5, 0 48px 48px rgba(37, 47, 137, 0.08)';
+    document.getElementById('close_nav_btn').style.display = 'flex';
+    document.getElementById('open_nav_btn').style.display = 'none';
+    document.getElementById('logo').style.display = 'none';
+    for (let i = 0; i < items.length; i += 1) {
+      items[i].style.display = 'flex';
+    }
+    document.body.style.overflowY = 'hidden';
+  }
+}
+
+/* exported function */
+function closeNav() {
+  if (windowSize.matches) {
+    document.getElementById('drop-menu').style.height = '0';
+    document.getElementById('drop-menu').style.boxShadow = 'none';
+    document.getElementById('close_nav_btn').style.display = 'none';
+    document.getElementById('open_nav_btn').style.display = 'flex';
+    document.getElementById('logo').style.display = 'initial';
+    for (let i = 0; i < items.length; i += 1) {
+      items[i].style.display = 'none';
+    }
+    document.body.style.overflowY = 'auto';
+  }
+}
+
+document.getElementById('open_nav_btn').addEventListener('click', openNav);
+document.getElementById('close_nav_btn').addEventListener('click', closeNav);
+for (let i = 0; i < items.length; i += 1) {
+  items[i].addEventListener('click', closeNav);
+}
+
+// SCROLLSPY //
+
+// POPUP //
+const projectsInfo = [
+  {
+    title: 'Concierge',
+    desc: 'A website to let you book a ticket to any number of events. You can create the event in question, or book the dates you’d like to go.',
+    langs: ['Ruby on rails', 'React', 'Redux'],
+    imgCard: "url('./images/projects/concierge-card.png')",
+    imgDesk: 'images/projects/concierge-desk.png',
+    imgPopup: 'images/projects/concierge-mob.png',
+    live: 'https://concierge-jtz.netlify.app/',
+    source: 'https://github.com/qwibbler/Concierge-Front-end',
+  },
+  {
+    title: 'TV Shows Catalogue',
+    desc: 'This is a catalog of all TV Shows culled from the free API TV Maze, where you can like and comment on all your favorite shows.',
+    langs: ['HTML', 'CSS', 'Javascript', 'Webpack'],
+    imgCard: "url('./images/projects/tv-card.png')",
+    imgDesk: 'images/projects/tv-desk.png',
+    imgPopup: 'images/projects/tv-mob.png',
+    live: 'https://qwibbler-tv-catalogue.netlify.app/',
+    source: 'https://github.com/qwibbler/Capstone-Js-and-Networking',
+  },
+  {
+    title: 'EconoMe',
+    desc: 'A budgeting app, where you can put in your daily expenditure, sort it into categories, and then see the breakdown of the expenditures per category.',
+    langs: ['Ruby', 'Rails'],
+    imgCard: "url('./images/projects/econome-card.png')",
+    imgDesk: 'images/projects/econome-desk.png',
+    imgPopup: 'images/projects/econome-mob.png',
+    live: 'https://econo-me.herokuapp.com/',
+    source: 'https://github.com/qwibbler/EconoMe',
+  },
+  {
+    title: 'To Do List',
+    desc: 'Create your own personal list of all the things you have yet to do.',
+    langs: ['HTML', 'CSS', 'Javascript'],
+    imgCard: 'url("./images/projects/todo-card.png")',
+    imgDesk: 'images/projects/todo-desk.png',
+    imgPopup: 'images/projects/todo-mob.png',
+    live: 'https://qwibbler.github.io/todo-list/dist/',
+    source: 'https://github.com/qwibbler/todo-list',
+  },
+  {
+    title: 'Leaderboard',
+    desc: 'This is a website showing all the top players in a game.',
+    langs: ['HTML', 'CSS', 'Javascript', 'Webpack'],
+    imgCard: 'url("./images/projects/leaderboard-card.png")',
+    imgDesk: './images/projects/leaderboard-desk.png',
+    imgPopup: './images/projects/leaderboard-mob.png',
+    live: 'https://qwibbler.github.io/leaderboard/',
+    source: 'https://github.com/qwibbler/leaderboard',
+  },
+  {
+    title: 'Iqbal Day Poetry Festival',
+    desc: "This is a demo website for a poetry festival held in honor of Pakistan's national poet, a man of deep thought and beautiful verse.",
+    langs: ['Html', 'Css', 'Javascript'],
+    imgCard: 'url("./images/projects/iqbal-day-card.png")',
+    imgDesk: 'images/projects/iqbal-day-desk.png',
+    imgPopup: 'images/projects/iqbal-day-mob.png',
+    live: 'https://qwibbler.github.io/Capstone-Portal/',
+    source: 'https://github.com/qwibbler/Capstone-Portal',
+  },
+];
+
+for (let i = 0; i < projectsInfo.length; i += 1) {
+  // create wrapper
+  const projWrapper = document.createElement('div');
+  projWrapper.className = 'proj';
+  projWrapper.style.backgroundImage = projectsInfo[i].imgCard;
+  document.getElementById('projects').appendChild(projWrapper);
+
+  // create text part
+  const textDiv = document.createElement('div');
+  textDiv.className = 'proj-text';
+  projWrapper.appendChild(textDiv);
+
+  // Add title
+  const projTitle = document.createElement('h4');
+  projTitle.textContent = projectsInfo[i].title;
+  textDiv.appendChild(projTitle);
+
+  // Add langs
+  const projLangs = document.createElement('ul');
+  textDiv.appendChild(projLangs);
+
+  for (let n = 0; n < projectsInfo[i].langs.length; n += 1) {
+    const listElem = document.createElement('li');
+    const textElem = document.createTextNode(projectsInfo[i].langs[n]);
+    listElem.appendChild(textElem);
+    projLangs.appendChild(listElem);
+  }
+
+  // Add button
+  const seeBtn = document.createElement('button');
+  seeBtn.innerHTML = 'See Project';
+  textDiv.appendChild(seeBtn);
+  seeBtn.className = 'seeBtn';
+  seeBtn.id = i.toString();
+}
+
+// popup window
+const popupWrapper = document.getElementById('popupWrapper');
+
+function closepopup() {
+  popupWrapper.innerHTML = '';
+  document.body.style.overflowY = 'auto';
+}
+
+function openPopup(id = 0) {
+  // popbackground
+  const popupBackground = document.createElement('div');
+  popupWrapper.appendChild(popupBackground);
+  popupBackground.className = 'proj_background';
+  popupBackground.addEventListener('click', closepopup);
+
+  // popupcard
+  const popupcard = document.createElement('div');
+  popupWrapper.appendChild(popupcard);
+  popupcard.className = 'proj_card';
+
+  // popCloseButton
+  const popCloseButton = document.createElement('button');
+  popupcard.appendChild(popCloseButton);
+  popCloseButton.className = 'close_card';
+  popCloseButton.textContent = 'X';
+  popCloseButton.addEventListener('click', closepopup);
+
+  // popupimage
+  const popImg = document.createElement('img');
+  popupcard.appendChild(popImg);
+  popImg.className = 'proj_img';
+  if (windowSize.matches) {
+    popImg.src = projectsInfo[id].imgPopup;
+  } else {
+    popImg.src = projectsInfo[id].imgDesk;
+  }
+
+  // popupheading
+  const popHead = document.createElement('h3');
+  popupcard.appendChild(popHead);
+  popHead.className = 'proj_title';
+  popHead.textContent = projectsInfo[id].title;
+
+  // poplaguages
+  const poplaguagesul = document.createElement('ul');
+  popupcard.appendChild(poplaguagesul);
+  poplaguagesul.className = 'proj_langs';
+  for (let i = 0; i < projectsInfo[id].langs.length; i += 1) {
+    const poplanguagesli = document.createElement('li');
+    poplaguagesul.appendChild(poplanguagesli);
+    poplanguagesli.textContent = projectsInfo[id].langs[i];
+  }
+
+  // popdescription
+  const descript = document.createElement('p');
+  popupcard.appendChild(descript);
+  descript.className = 'proj_desc';
+  descript.textContent = projectsInfo[id].desc;
+
+  // popupSeeButton
+  const popupSeeButton = document.createElement('div');
+  popupcard.appendChild(popupSeeButton);
+  popupSeeButton.className = 'proj_see';
+
+  // live
+  const liveButton = document.createElement('button');
+  popupSeeButton.appendChild(liveButton);
+  liveButton.innerHTML = `<a href="${projectsInfo[id].live}">See live <img src="images/Live.svg" alt=""></a>`;
+
+  // src
+  const srcButton = document.createElement('button');
+  popupSeeButton.appendChild(srcButton);
+  srcButton.innerHTML = `<a href="${projectsInfo[id].source}">See Source <img src="images/live-github.svg"alt=""></a>`;
+
+  // disable page scroll
+  document.body.style.overflowY = 'hidden';
+}
+
+for (let k = 0; k < projectsInfo.length; k += 1) {
+  // Get project button by id then add listener according to id
+  const openPopupId = document.getElementsByClassName('seeBtn')[k];
+  openPopupId.addEventListener('click', () => {
+    openPopup(k);
+  });
+
+  // maybe make the whole project clickable?
+  const openWrapper = document.getElementsByClassName('proj')[k];
+  openWrapper.addEventListener('click', () => {
+    openPopup(k);
+  });
+}
+
+// Validate form
+const form = document.getElementById('contact-form');
+const email = document.getElementById('useremail');
+const errorUpper = '&#9888; Your email is in uppercase. Please rewrite it in lowercase.';
+const small = document.createElement('small');
+
+function checkCase(input) {
+  return /[A-Z]/.test(input); // If has upper, return True
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // Form invalid by default
+  let isValid = false;
+
+  // Check email case
+  const inputEmail = email.value.trim();
+  if (checkCase(inputEmail)) {
+    form.appendChild(small);
+    small.innerHTML = errorUpper;
+  } else {
+    isValid = true;
+  }
+
+  // If form valid, submit
+  if (isValid) {
+    form.removeChild(small);
+    form.submit();
+  }
+});
+
+// Local Storage
+const uName = document.getElementById('username');
+const uMail = document.getElementById('useremail');
+const uMsg = document.getElementById('comment');
+
+// Get formData and post it to local storage
+function upDateValue() {
+  const formData = JSON.stringify({
+    // for some reason, changing things even tricially breaks it. :(
+    name: uName.value.trim(),
+    email: uMail.value.trim(),
+    comment: uMsg.value.trim(),
+  });
+  localStorage.setItem('formData', formData);
+}
+// On change, update values
+form.addEventListener('change', upDateValue);
+
+// Get stored values and fill them in
+function loadData() {
+  if (localStorage.getItem('formData') !== null) {
+    const savedData = JSON.parse(localStorage.getItem('formData'));
+    uName.value = savedData.name;
+    uMail.value = savedData.email;
+    uMsg.value = savedData.comment;
+  }
+}
+// Run the loader on window start
+window.onload = loadData;
